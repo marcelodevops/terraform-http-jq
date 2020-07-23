@@ -9,3 +9,8 @@ data "http" "ipranges" {
     Accept = "application/json"
   }
 }
+data "external" "script" {
+    program = ["bash", "./filter.sh", "${data.http.ipranges.body}"]
+    
+
+}
