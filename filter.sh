@@ -4,4 +4,4 @@ function check_deps() {
 }
 check_deps
 OUTPUT=$(echo $1 | jq -r '.items[] | select(.mask | startswith("255"))' | grep "cidr" | awk '{print $2  }')
-jq -n --arg output "$OUTPUT"  "{\"cidr\":$OUTPUT}" 
+jq -n --arg output "cidr"  "{$OUTPUT}" 
