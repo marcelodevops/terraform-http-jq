@@ -10,7 +10,6 @@ data "http" "ipranges" {
   }
 }
 data "external" "script" {
-    program = ["bash", "./filter.sh", "${data.http.ipranges.body}"]
-    
-
+  program = ["bash", "./filter.sh", data.http.ipranges.body]
+  
 }
